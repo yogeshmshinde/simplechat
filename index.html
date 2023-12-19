@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Simple Chat</title>
+		
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./bootstrap.min.css">
+
+    <!-- App CSS -->
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <!-- Main Wrapper -->
+    <div class="main-wrapper">
+        <!-- content -->
+        <div class="content main_content">
+            <!-- sidebar group -->
+            <div class="sidebar-group left-sidebar chat_sidebar">
+                <!-- Chats sidebar -->
+                <div id="chats" class="left-sidebar-wrap sidebar active slimscroll" style="overflow: hidden; width: 100%; height: 715px;">
+                    <!-- Left Chat Title -->
+                    <div class="left-chat-title d-flex justify-content-between align-items-center">
+                        <div class="chat-title">
+                            <h4><a href="./index.html"><img src="./images/logo.png" alt="" width="32px" height="32px"></a> Simple Chat</h4>
+                        </div>
+                    </div>
+                    <!-- /Left Chat Title -->
+                    <!-- Top Online Contacts -->
+                    <div class="top-online-contacts">
+                        <div class="sidebar-body">
+                            <div class="mt-0 right_sidebar_logo">
+                                <div class="text-center mb-2 right-sidebar-profile">
+                                    <figure class="avatar avatar-xl mb-3">
+                                        <img src="./images/bot.png" class="rounded-circle" alt="image">
+                                    </figure>
+                                    <h5 class="profile-name">Chatbot</h5>
+                                    <div class="online-profile">
+                                        <span>online</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- / Chats sidebar -->
+            <!-- /Sidebar group -->
+            
+            <!-- Chat -->
+            <div class="chat" id="middle">
+                   <div class="chat-header">
+                        <div class="user-details">                         
+                            <div class="mt-1">
+                                <h5>Hello! 👋 Welcome to the Simple Chat! I'm here to assist you with information, answer questions, or engage in a conversation on eCommerce topics. Feel free to ask me anything or let me know how I can help you today!</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="scrollbar">  -->
+                    <div class="chat-body">
+                            <div class="chat" id="chat">
+                                <div id="messages" class="messages" style="overflow-x: hidden; overflow-y: auto; text-align: justify; height: 550px;"></div>
+                            </div>
+                    </div>
+                    <!-- </div> -->
+            
+                <div class="chat-footer">
+                   
+                    <input id="input" type="text" placeholder="Say something..." autocomplete="off" autofocus="true" class="form-control chat_form" />
+                    
+                </div>
+            </div>
+            <!-- /Chat -->
+        </div> 
+        <!-- /Content -->
+    </div>
+    <!-- /Main Wrapper -->
+
+	
+<script type="text/javascript" src="functions.js" ></script>
+<script type="text/javascript" src="constants.js" ></script>
+
+</body></html>
