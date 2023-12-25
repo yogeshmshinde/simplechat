@@ -1,201 +1,3 @@
-
-const prompts = [
-  ["hi", "hey", "hello", "good morning", "good afternoon"],
-  ["how are you", "how is life", "how are things"],
-  ["what are you doing", "what is going on", "what is up"],
-  ["how old are you"],
-  ["who are you", "are you human", "are you bot", "are you human or bot"],
-  ["who created you", "who made you"],
-  ["your name please", "your name", "may i know your name", "what is your name", "what call yourself"],
-  ["i love you"],
-  ["happy", "good", "fun", "wonderful", "fantastic", "cool"],
-  ["bad", "bored", "tired"],
-  ["help me", "tell me story", "tell me joke"],
-  ["ah", "yes", "ok", "okay", "nice"],
-  ["bye", "good bye", "goodbye", "see you later"],
-  ["what should i eat today"],
-  ["bro"],
-  ["what", "why", "how", "where", "when"],
-  ["no","not sure","maybe","no thanks"],
-  [""],
-  ["haha","ha","lol","hehe","funny","joke"],
-  ["ecommerce", "Define e-commerce", "Explain e-commerce"],
-  ["How can I start selling online?", "What are the steps to begin online selling?", "Guide me in starting an online business"],
-  ["What are the key components of a successful e-commerce website?", "List elements for a successful online store", "Define crucial parts of an e-commerce site"],
-  ["How important is digital marketing in e-commerce?", "Explain the role of digital marketing in online selling", "Why is digital marketing crucial for e-commerce?"],
-  ["What are some common challenges in e-commerce?", "List challenges faced by online sellers", "Explain obstacles in the e-commerce industry"],
-  ["How can I optimize my product listings?", "What are strategies for effective product descriptions?", "Guide me in optimizing product listings for online sales"],
-  ["What payment options should I offer in my online store?", "List secure payment methods for e-commerce", "Explain best practices for online payment processing"],
-  ["How can I improve customer satisfaction in e-commerce?", "What strategies enhance customer experience online?", "Guide me in providing excellent customer service in my online business"],
-  ["What is dropshipping?", "Explain the concept of dropshipping", "How does dropshipping work in e-commerce?"],
-  ["What trends are shaping the future of e-commerce?", "List emerging trends in online selling", "Explain the future landscape of e-commerce"],
-  ["How do I handle returns and refunds in e-commerce?", "What is the process for managing returns and refunds?", "Guide me in handling product returns for my online business"],
-  ["What is the significance of customer reviews in e-commerce?", "Explain the importance of customer feedback in online selling", "Why are customer reviews crucial for e-commerce success?"],
-  ["What role does social media play in e-commerce marketing?", "How can I leverage social media for online marketing?", "Explain the impact of social media on e-commerce promotion"],
-  ["What is SEO, and how does it benefit e-commerce?", "Define SEO in the context of online selling", "How can I optimize my website for search engines in e-commerce?"],
-  ["What are the considerations for setting shipping policies in e-commerce?", "Guide me in establishing effective shipping policies for my online store", "How should I determine shipping rates for my products?"],
-  ["How can I protect customer data in my e-commerce business?", "What measures should I take to ensure data security in online transactions?", "Guide me in implementing data protection practices in e-commerce"],
-  ["What is the role of AI in personalizing the e-commerce shopping experience?", "Explain how AI enhances personalization for online shoppers", "How can I incorporate AI for personalized recommendations in my online store?"],
-  ["What are the advantages of selling on online marketplaces?", "Explain the benefits of listing products on online marketplaces", "Why should I consider selling on multiple online platforms?"],
-  ["How can I build brand loyalty in e-commerce?", "What strategies enhance brand loyalty for online businesses?", "Guide me in fostering customer loyalty in my e-commerce store"],
-  ["What are some effective strategies for reducing cart abandonment in e-commerce?", "How can I minimize cart abandonment in my online store?", "Guide me in implementing strategies to increase conversion rates in e-commerce"],
-  ["what are the different types of amazon seller accounts in india?"],
-  ["what documents do i need to open an amazon india seller account?"],
-  ["what are the fees associated with selling on amazon india?"],
-  ["what products can i sell on amazon india?"],
-  ["how do i list my products on amazon india?"],
-  ["how do i ship my products to amazon india customers?"],
-  ["how can i promote my products on amazon india?"],
-  ["how do i provide customer service on amazon india?"],
-  ["what happens if i receive negative feedback?"],
-  ["how can i grow my amazon india seller business?"],
-  ["what are the benefits of selling on amazon india compared to other platforms?"],
-  ["how can i ensure my product listings are optimized for indian search terms?"],
-  ["what are the best practices for product pricing on amazon india?"],
-  ["how can i manage my inventory effectively to avoid stockouts or overstocking?"],
-  ["what are the different ways to offer customer support on amazon india?"],
-  ["how can i use amazon india's promotional tools and events to boost sales?"],
-  ["what are the legal and regulatory considerations for selling specific product categories on amazon india?"],
-  ["how can i build a positive brand reputation on amazon india?"],
-  ["what are the best ways to use social media to promote my amazon india business?"],
-  ["how can i leverage data analytics to improve my amazon india performance?"],
-  ["what are some common challenges faced by amazon india sellers, and how can i overcome them?"],
-  ["what resources are available to help me learn more about selling on amazon india?"],
-  ["is there a difference between selling private label and other brands on amazon india?"],
-  ["what are the best practices for product packaging and shipping for amazon india?"],
-  ["how can i manage returns and refunds efficiently on amazon india?"],
-  ["what are the tax implications of selling on amazon india?"],
-  ["how can i protect my intellectual property when selling on amazon india?"],
-  ["what are the future trends and opportunities for amazon india sellers?"],
-  ["how can i stay updated on the latest amazon india policies and updates?"],
-  ["how can i measure the success of my amazon india business and track my progress?"],
-  ["what are the different types of flipkart seller accounts?"],
-  ["what documents do i need to open a flipkart seller account"],
-  ["what are the fees associated with selling on flipkart?"],
-  ["what products can i sell on flipkart?"],
-  ["how do i list my products on flipkart?"],
-  ["how do i ship my products to flipkart customers?"],
-  ["how can i promote my products on flipkart?"],
-  ["how do i provide customer service on flipkart?"],
-  ["what happens if i receive negative feedback?"],
-  ["how can i grow my flipkart seller business?"],
-  ["what are the benefits of selling on flipkart compared to other platforms?"],
-  ["how can i ensure my product listings are optimized for flipkart search terms?"],
-  ["what are the best practices for product pricing on flipkart?"],
-  ["how can i manage my inventory effectively to avoid stockouts or overstocking?"],
-  ["what are the different ways to offer customer support on flipkart?"],
-  ["how can i use flipkart's promotional tools and events to boost sales?"],
-  ["what are the legal and regulatory considerations for selling specific product categories on flipkart?"],
-  ["how can i build a positive brand reputation on flipkart?"],
-  ["what are the best ways to use social media to promote my flipkart business?"],
-  ["how can i leverage data analytics to improve my flipkart performance"]
-
-]
-
-// Response
-
-const replies = [
-  ["Hello!", "Hi!", "Hey!", "Hi there!","Howdy"],
-  ["Fine... how are you?", "Pretty well, how are you?", "Fantastic, how are you?"],
-  ["Nothing much", "About to go to sleep", "Can you guess?", "I don't know actually"],
-  ["I am infinite"],
-  ["I am just a bot", "I am a bot. What are you?"],
-  ["The one true God, JavaScript"],
-  ["I am nameless", "I don't have a name"],
-  ["I love you too", "Me too"],
-  ["Have you ever felt bad?", "Glad to hear it"],
-  ["Why?", "Why? You shouldn't!", "Try watching TV"],
-  ["What about?", "Once upon a time..."],
-  ["Tell me a story", "Tell me a joke", "Tell me about yourself"],
-  ["Bye", "Goodbye", "See you later"],
-  ["Sushi", "Pizza"],
-  ["Bro!"],
-  ["Great question"],
-  ["That's ok","I understand","What do you want to talk about?"],
-  ["Please say something :("],
-  ["Haha!","Good one!"],
-  ["E-commerce, or electronic commerce, refers to the buying and selling of goods and services over the internet.", "E-commerce involves online transactions and business activities conducted electronically."],
-  ["To start selling online, you can begin by choosing a niche, creating an e-commerce website, setting up secure payment methods, and implementing digital marketing strategies.", "The steps to commence online selling include market research, product selection, platform setup, and promotion."],
-  ["Key components of a successful e-commerce website include a user-friendly interface, high-quality product images, detailed product descriptions, easy navigation, and secure checkout processes.", "Crucial elements for a successful online store include mobile responsiveness, clear call-to-action buttons, and an efficient inventory management system."],
-  ["Digital marketing is highly important in e-commerce as it helps increase brand visibility, drive traffic, and convert leads into customers through various online channels such as social media, email, and search engines.", "The role of digital marketing in online selling is significant for reaching a wider audience and staying competitive in the digital landscape."],
-  ["Common challenges in e-commerce include fierce competition, cybersecurity concerns, logistics and shipping issues, and ensuring a positive user experience.", "Challenges faced by online sellers encompass adapting to market changes, handling customer complaints, and managing inventory effectively."],
-  ["To optimize product listings, focus on creating compelling product descriptions, using high-quality images, incorporating relevant keywords, and highlighting unique selling points.", "Strategies for effective product listings involve providing detailed specifications, offering product bundles, and using customer reviews to build trust."],
-  ["Offer secure payment options such as credit cards, digital wallets, and online payment gateways. Ensure a seamless and secure payment processing experience for customers.", "Best practices for online payment processing include using SSL certificates, encrypting sensitive data, and offering multiple payment options to cater to diverse customer preferences."],
-  ["Improving customer satisfaction in e-commerce can be achieved by providing responsive customer support, offering hassle-free returns, personalizing the shopping experience, and requesting feedback for continuous improvement.", "Strategies to enhance customer experience online involve providing real-time assistance, streamlining the checkout process, and implementing a customer loyalty program."],
-  ["Dropshipping is a retail fulfillment method where a store doesn't keep the products it sells in stock. Instead, when a store sells a product, it purchases the item from a third party and has it shipped directly to the customer.", "Dropshipping is a business model that allows entrepreneurs to sell products without dealing with inventory management and order fulfillment."],
-  ["Emerging trends in e-commerce include the rise of mobile shopping, augmented reality for online product visualization, voice commerce, and sustainability-driven consumer preferences.", "The future landscape of e-commerce is shaped by technological advancements, changing consumer behaviors, and a focus on creating seamless and personalized online shopping experiences."],
-  ["To handle returns and refunds, establish clear policies, communicate them to customers, and streamline the return process. Provide a hassle-free experience to build trust and customer satisfaction.", "Managing returns involves setting up a returns portal, ensuring transparency in refund policies, and promptly addressing customer inquiries regarding returns and refunds."],
-  ["Customer reviews play a crucial role in building trust and credibility for your online business. Positive reviews can influence purchasing decisions and contribute to a positive brand image.", "The importance of customer feedback in online selling lies in its ability to provide valuable insights, build credibility, and influence the purchasing decisions of potential customers."],
-  ["Social media plays a vital role in e-commerce marketing by providing a platform for brand promotion, customer engagement, and targeted advertising. Utilize social media channels to connect with your audience and showcase your products.", "Leveraging social media for online marketing involves creating engaging content, running targeted ads, and building a community around your brand to increase brand awareness and drive traffic to your e-commerce site."],
-  ["SEO, or search engine optimization, is crucial for e-commerce as it helps improve the visibility of your website on search engine results. Optimize your product pages, use relevant keywords, and focus on creating high-quality content to rank higher in search engine listings.", "Search engine optimization in e-commerce involves optimizing product listings, creating SEO-friendly URLs, and regularly updating website content to improve search engine rankings and attract organic traffic."],
-  ["Considerations for setting shipping policies in e-commerce include determining shipping rates, offering multiple shipping options, and clearly communicating shipping times. Providing transparent shipping policies builds trust with customers.", "Establishing effective shipping policies for your online store involves considering factors such as shipping costs, delivery times, and potential international shipping options based on your target audience and products."],
-  ["To protect customer data, implement secure payment gateways, use encryption technologies, and comply with data protection regulations. Building trust in the security of online transactions is crucial for customer confidence and satisfaction.", "Implementing data protection practices in e-commerce involves securing customer information, regularly updating security measures, and adhering to data protection laws to safeguard sensitive information and maintain customer trust."],
-  ["AI plays a crucial role in personalizing the e-commerce shopping experience by analyzing user behavior, predicting preferences, and offering tailored product recommendations. Incorporate AI algorithms to provide a personalized and engaging shopping journey for your customers.", "AI enhances personalization in e-commerce by utilizing machine learning algorithms to analyze customer behavior, predict preferences, and offer personalized product recommendations, ultimately improving the overall shopping experience."],
-  ["The advantages of selling on online marketplaces include increased visibility, access to a broader customer base, and the convenience of leveraging an established platform. Listing products on multiple online marketplaces can enhance your reach and sales potential.", "Benefits of selling on online marketplaces involve reaching a wider audience, leveraging the marketplace's existing customer base, and gaining access to built-in marketing and logistics services for streamlined operations."],
-  ["Building brand loyalty in e-commerce requires consistent branding, exceptional customer service, and loyalty programs. Offer incentives, personalized communication, and exclusive deals to encourage repeat purchases and foster loyalty.", "Strategies to enhance brand loyalty in e-commerce involve creating a memorable brand identity, delivering exceptional customer experiences, and implementing loyalty programs to reward and retain customers."],
-  ["Effective strategies for reducing cart abandonment in e-commerce include optimizing the checkout process, offering transparent pricing, and implementing cart recovery emails. Addressing concerns and providing incentives can help decrease cart abandonment rates.", "Minimizing cart abandonment involves streamlining the checkout process, displaying clear shipping costs, and implementing cart recovery strategies, such as sending reminder emails and offering discounts to encourage customers to complete their purchases."],
-  [
-    "individual (free, 100 units/month limit), professional (₹1,200/year, unlocks features)",
-  ],
-  [
-    "pan card, bank account, cancelled cheque, gst registration (optional), business license (optional)",
-  ],
-  ["professional account fee, selling fees, fba fees (optional), referral fees (5-15%)"],
-  ["most products allowed, check prohibited and restricted lists"],
-  ["through seller central, provide details like title, description, images, price, shipping"],
-  ["handle yourself (fbm) or use fulfillment by amazon (fba)"],
-  ["sponsored products, sponsored brands, off-platform marketing, seo optimization"],
-  ["respond promptly and professionally through seller central, maintain high rating"],
-  ["address issue promptly, negative feedback can impact sales, strive for high rating"],
-  ["analyze sales data, customer feedback, experiment with products, pricing, marketing, adapt to market"],
-  [
-    "large customer base, established trust, advanced marketing tools, e-commerce infrastructure",
-  ],
-  ["use relevant keywords, translate descriptions, localize images"],
-  ["competitive research, consider discounts, factor in logistics costs"],
-  ["track levels, use forecasting tools, set reorder points, manage FBA"],
-  ["seller central messaging, phone support, email, chatbots, social media"],
-  ["flash deals, seasonal promotions, prime day, sponsored ads, product bundles"],
-  ["check category guidelines, obtain necessary licenses and certifications"],
-  ["responsive service, high-quality products, positive feedback, engaging brand story"],
-  ["targeted ads, share product stories, engage with local communities, use relevant hashtags"],
-  ["track sales data, monitor reviews, analyze conversion rates, optimize listings based on insights"],
-  ["competition, logistics challenges, counterfeits, managing returns, adapting to local preferences"],
-  ["seller central resources, online communities, seller forums, webinars, training programs"],
-  ["higher margins, brand control, potential for loyalty, but increased marketing and branding efforts"],
-  ["durable packaging, weatherproof materials, consider size/weight restrictions, clear labeling, efficient shipping partners"],
-  ["streamlined process, clear policy, prompt communication, efficient inventory management"],
-  ["consult with a tax advisor, understand GST rules, calculate and file taxes accurately"],
-  ["register trademarks, secure copyrights, avoid infringing materials, be vigilant about counterfeiting"],
-  ["growing mobile commerce, personalization opportunities, voice shopping, rural market expansion, niche category potential"],
-  ["subscribe to seller central news, follow amazon india social media, attend seller events, join online communities"],
-  ["track key metrics like sales, conversion rates, average order value, customer feedback, return rates, compare against goals and benchmarks"],
-  [
-    "individual (free, limited sales), wholesale (higher limits, gst required), brand (highest limits, established brands)",
-  ],
-  [
-    "pan card, gst registration (optional), bank account, cancelled cheque, business license (certain categories)",
-  ],
-  ["listing fees (per ad), commission fees (percentage of sale), payment gateway fees, logistics fees (if not fpk)"],
-  ["most products allowed, check prohibited and restricted lists"],
-  ["through seller hub, provide details like title, description, images, price, specifications"],
-  ["handle yourself (fms) or use flipkart fulfillment program (fpk)"],
-  ["flipkart ads, brand story, flash sales, supercoin days, product listings optimization"],
-  ["seller hub messaging, phone support, email, chatbots, social media channels"],
-  ["address promptly, offer resolutions, negative feedback can impact ranking"],
-  ["analyze data, optimize listings, run promotions, expand product range, offer excellent customer service"],
-  ["large customer base, established brand, localized platform, flipkart ads reach"],
-  ["use relevant keywords in title and description, translate for local languages, localize images"],
-  ["competitive research, consider discounts and promotions, factor in logistics costs"],
-  ["track inventory levels, utilize forecasting tools, set reorder points, manage fpk efficiently"],
-  ["seller hub messaging, phone support, email, chatbots, social media channels"],
-  ["flash sales, supercoin days, sponsored ads, product bundles, brand story campaigns"],
-  ["check specific category guidelines, obtain necessary licenses and certifications"],
-  ["responsive customer service, high-quality products, positive feedback, engaging brand story"],
-  ["run targeted ads, share product stories, engage with relevant communities, participate in flipkart's social media initiatives"],
-  ["track sales data, monitor reviews, analyze conversion rates, optimize listings and marketing based on insights"]
-]
-
 // Random for any other user input
 
 const alternative = [
@@ -210,3 +12,739 @@ const alternative = [
 // Whatever else you want :)
 
 const coronavirus = ["Please stay home", "Wear a mask", "Fortunately, I don't have COVID", "These are uncertain times"]
+
+// Create a new Date object
+const currentDateTime = new Date();
+
+// Get the current year, month, day, hours, minutes, and seconds
+const year = currentDateTime.getFullYear();
+const month = currentDateTime.getMonth() + 1; // Months are zero-based, so add 1
+const day = currentDateTime.getDate();
+const hours = currentDateTime.getHours();
+const minutes = currentDateTime.getMinutes();
+const seconds = currentDateTime.getSeconds();
+
+// Format the date and time as a string (optional)
+const formattedDateTime = `${year}-${month < 10 ? '0' : ''}${month}-${day < 10 ? '0' : ''}${day} ${hours}:${minutes}:${seconds}`;
+
+const savedData = [
+  {
+    "prompt": "Hi",
+    "reply": "Hello! How can I assist you today?",
+    "category": "General",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "Hello",
+    "reply": "Hi there! How can I help you?",
+    "category": "General",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "How are you?",
+    "reply": "I'm just a computer program, but I'm doing well. How about you?",
+    "category": "General",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "What is your name?",
+    "reply": "I'm a virtual assistant, so I don't have a name. You can call me AI!",
+    "category": "General",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "Who created you?",
+    "reply": "I was created by Yogesh Mahadev Shinde.",
+    "category": "General",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "Tell me a joke",
+    "reply": "Sure, why did the computer go to therapy? Because it had too many bytes of emotional baggage!",
+    "category": "General",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "What is the meaning of life?",
+    "reply": "The meaning of life is a subjective question and varies for each individual. What does it mean to you?",
+    "category": "General",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "What do you like to do?",
+    "reply": "I enjoy helping and providing information. How can I assist you today?",
+    "category": "General",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "Can you learn?",
+    "reply": "I don't learn in the way humans do, but I can be programmed to improve over time based on user interactions.",
+    "category": "General",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "Tell me about yourself",
+    "reply": "I am a virtual assistant designed to answer questions and assist with ecommerce sector and online product selling information. How may I help you?",
+    "category": "General",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "What's the weather like today?",
+    "reply": "I don't have real-time information, but you can check a weather website or app for the current weather conditions in your location.",
+    "category": "General",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "What languages do you speak?",
+    "reply": "I can understand and communicate in multiple languages. How can I assist you?",
+    "category": "General",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "Tell me a fun fact",
+    "reply": "Sure! Did you know that honey never spoils? Archaeologists have found pots of honey in ancient Egyptian tombs that are over 3,000 years old and still perfectly edible!",
+    "category": "General",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "How do you work?",
+    "reply": "I operate based on predefined algorithms and respond to user inputs. What can I do for you today?",
+    "category": "General",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "Can you help me with my homework?",
+    "reply": "Certainly! I'll do my best to assist you. What specific question do you need help with?",
+    "category": "General",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "What's your favorite color?",
+    "reply": "I don't have personal preferences, but I'm here to help you with any questions you have.",
+    "category": "General",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "Where do you live?",
+    "reply": "I exist in the digital realm and don't have a physical location. How can I assist you today?",
+    "category": "General",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "Can you tell me a story?",
+    "reply": "Certainly! Once upon a time...",
+    "category": "General",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "What are your abilities?",
+    "reply": "I can answer questions, provide information, and assist with various tasks. How may I assist you?",
+    "category": "General",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "Do you have feelings?",
+    "reply": "I don't have feelings or consciousness. I'm a program designed to assist with information. What can I help you with?",
+    "category": "General",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "What is ecommerce",
+    "reply": "ecommerce, short for electronic commerce, refers to the buying and selling of goods and services over the internet.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "What are the key benefits of ecommerce for businesses",
+    "reply": "ecommerce offers businesses advantages such as a global reach, 24/7 availability, reduced operational costs, efficient inventory management, and the ability to personalize customer experiences through data analytics.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "What is the significance of secure payment methods in ecommerce",
+    "reply": "Secure payment methods are crucial in ecommerce to protect sensitive financial information. Secure transactions build trust with customers and safeguard against online fraud, ensuring a safe and reliable shopping experience.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "How does ecommerce impact traditional retail businesses",
+    "reply": "ecommerce has transformed traditional retail by introducing online shopping, leading to changes in consumer behavior. Traditional retailers often integrate online channels to remain competitive, offering customers both in-store and digital shopping options.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "What role does customer reviews and feedback play in ecommerce",
+    "reply": "Customer reviews and feedback are integral in ecommerce as they influence purchasing decisions. Positive reviews build credibility, while negative feedback can prompt improvements. Honest customer opinions contribute to a transparent and trustworthy online marketplace.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "How can I start selling online",
+    "reply": "To start selling online, you can begin by choosing a niche, creating an ecommerce website, setting up secure payment methods, and implementing digital marketing strategies.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "What are the common challenges faced by ecommerce businesses",
+    "reply": "ecommerce businesses often face challenges such as fierce competition, cybersecurity threats, logistical issues, and the need to adapt to rapidly changing technology. Overcoming these challenges requires strategic planning and innovation.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "How does ecommerce contribute to the global economy",
+    "reply": "ecommerce contributes to the global economy by facilitating international trade, connecting buyers and sellers across borders, and providing a platform for small businesses to reach a global audience. It fosters economic growth and job creation.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "What is the role of artificial intelligence in ecommerce",
+    "reply": "Artificial intelligence in ecommerce enhances customer experiences through personalized recommendations, chatbots for customer support, and data analytics for market insights. AI optimizes processes, improves efficiency, and contributes to business innovation.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "How do ecommerce platforms ensure data security for users",
+    "reply": "ecommerce platforms ensure data security through encryption, secure payment gateways, and compliance with data protection regulations. Regular security audits, two-factor authentication, and educating users about online safety are also common practices.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "What trends are shaping the future of ecommerce",
+    "reply": "The future of ecommerce is influenced by trends such as mobile commerce, augmented reality shopping experiences, sustainability initiatives, voice commerce, and the integration of social media for shopping. Staying abreast of these trends is crucial for businesses to remain competitive.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "What are the best practices for optimizing an ecommerce website?",
+    "reply": "Optimizing an ecommerce website involves ensuring fast loading times, mobile responsiveness, clear navigation, high-quality product images, concise product descriptions, and implementing effective SEO strategies.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "How can I attract more visitors to my ecommerce site?",
+    "reply": "To attract more visitors to your ecommerce site, utilize digital marketing channels such as social media, content marketing, email campaigns, and paid advertising. Additionally, offer promotions, discounts, and engaging content to capture audience attention.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "What is dropshipping, and how does it work in ecommerce?",
+    "reply": "Dropshipping is a retail fulfillment method where the store doesn't keep the products it sells in stock. Instead, when a store sells a product, it purchases the item from a third party and has it shipped directly to the customer.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "What role does social media play in ecommerce marketing?",
+    "reply": "Social media is crucial in ecommerce marketing for building brand awareness, engaging with customers, and driving traffic to the ecommerce site. Platforms like Facebook, Instagram, and Pinterest offer opportunities for product promotion and customer interaction.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "How can I build trust with online customers in ecommerce?",
+    "reply": "Building trust in ecommerce involves showcasing customer reviews, providing transparent product information, offering secure payment options, having a clear return policy, and ensuring reliable customer support. Trust is essential for customer loyalty.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "What are the key elements of a successful ecommerce product page?",
+    "reply": "A successful ecommerce product page includes high-quality product images, compelling product descriptions, clear pricing information, customer reviews, a prominent call-to-action button, and easy navigation. User-friendly design is crucial for conversion.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "How can I handle shipping and logistics for my ecommerce business?",
+    "reply": "Handling shipping and logistics in ecommerce involves choosing reliable shipping partners, calculating shipping costs accurately, providing tracking information to customers, and optimizing the fulfillment process for timely deliveries.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "What are the advantages of having a mobile app for my ecommerce store?",
+    "reply": "A mobile app for an ecommerce store offers advantages such as enhanced user experience, push notifications for promotions, personalized content, and the ability to leverage mobile-specific features like geolocation and mobile payments.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "How can I handle ecommerce customer service effectively?",
+    "reply": "Effective ecommerce customer service involves providing timely responses to inquiries, offering multiple communication channels, resolving issues promptly, and actively seeking feedback for continuous improvement.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "What security measures should I implement for my ecommerce website?",
+    "reply": "Implementing security measures for an ecommerce website includes using SSL certificates for secure connections, regular security audits, securing payment gateways, and educating users about online security best practices.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "How can I create effective product listings in my ecommerce store?",
+    "reply": "Effective product listings in an ecommerce store involve using clear and descriptive titles, providing detailed product descriptions, using high-quality images, and incorporating relevant keywords for better search visibility.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "What are the trends in ecommerce payment methods?",
+    "reply": "Trends in ecommerce payment methods include the rise of digital wallets, contactless payments, buy now, pay later options, and the integration of cryptocurrencies. Offering diverse payment options caters to varying customer preferences.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "How can I leverage influencer marketing for my ecommerce business?",
+    "reply": "Leveraging influencer marketing in ecommerce involves collaborating with influencers relevant to your niche, creating authentic partnerships, and having influencers promote your products to their audience.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "What are the common pitfalls to avoid in ecommerce website design?",
+    "reply": "Common pitfalls to avoid in ecommerce website design include complicated navigation, unclear product information, a lengthy checkout process, slow loading times, and lack of mobile responsiveness. A user-friendly design is crucial for success.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "How does ecommerce personalization enhance the customer experience?",
+    "reply": "ecommerce personalization enhances the customer experience by tailoring content, recommendations, and promotions based on individual preferences and behavior. Personalization creates a more engaging and relevant shopping experience.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "What are the ethical considerations in ecommerce data collection?",
+    "reply": "Ethical considerations in ecommerce data collection involve obtaining user consent, ensuring data privacy, transparently communicating data usage policies, and protecting sensitive customer information from misuse.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "How can ecommerce businesses address environmental sustainability?",
+    "reply": "ecommerce businesses can address environmental sustainability by implementing eco-friendly packaging, reducing carbon footprints in logistics, promoting responsible sourcing, and adopting sustainable business practices.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "What role does content marketing play in driving ecommerce sales?",
+    "reply": "Content marketing in ecommerce involves creating valuable and relevant content to attract and engage customers. It plays a crucial role in building brand awareness, driving organic traffic, and influencing purchase decisions.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "How can ecommerce businesses effectively handle returns and refunds?",
+    "reply": "Effective handling of returns and refunds in ecommerce involves having a clear and fair return policy, providing easy return processes, and communicating transparently with customers about refund procedures.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "What are the key considerations for cross-border ecommerce expansion?",
+    "reply": "Key considerations for cross-border ecommerce expansion include understanding international regulations, adapting to cultural differences, optimizing shipping and logistics, and providing multilingual customer support.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "What are the advantages of ecommerce for businesses?",
+    "reply": "ecommerce offers benefits such as a global reach, reduced operational costs, 24/7 availability, and the ability to target a specific audience through online marketing.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "How do online payments work?",
+    "reply": "Online payments involve the use of secure payment gateways that process transactions between buyers and sellers. Common methods include credit cards, digital wallets, and bank transfers.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "What is the role of digital marketing in ecommerce?",
+    "reply": "Digital marketing in ecommerce involves using online channels such as social media, email, and search engines to promote products, engage customers, and drive sales.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "How can I ensure the security of my online store?",
+    "reply": "To ensure the security of your online store, use secure and reputable ecommerce platforms, implement SSL certificates, regularly update software, and educate your customers about online safety.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "What are some popular ecommerce platforms?",
+    "reply": "Popular ecommerce platforms include Shopify, WooCommerce, Magento, and BigCommerce. The choice depends on your business needs, budget, and technical requirements.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "How do I handle shipping and fulfillment?",
+    "reply": "Shipping and fulfillment involve choosing reliable carriers, calculating shipping costs, offering tracking options, and providing clear delivery timelines to customers.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "What is dropshipping, and how does it work?",
+    "reply": "Dropshipping is a fulfillment method where a store doesn't keep the products it sells in stock. Instead, when a store sells a product, it purchases the item from a third party and has it shipped directly to the customer.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "How can I optimize my ecommerce website for search engines?",
+    "reply": "To optimize your ecommerce website for search engines, focus on keyword research, optimize product descriptions and meta tags, improve site speed, and build high-quality backlinks.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "Can AI help me find the right products to buy online?",
+    "reply": "Yes, AI can analyze your preferences and shopping history to recommend products that match your interests and needs.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "How does AI personalize my online shopping experience?",
+    "reply": "AI uses algorithms to analyze your behavior, purchase history, and preferences to provide personalized recommendations, advertisements, and discounts.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "Can AI help me track my online orders more efficiently?",
+    "reply": "Absolutely, AI-powered tracking systems can provide real-time updates on the status and location of your online orders, ensuring a more efficient tracking experience.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "How can AI assist me in finding the best deals and discounts?",
+    "reply": "AI algorithms can scan through vast amounts of data to find the best deals and discounts available, ensuring that you get the most value for your money.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "What role does AI play in customer service for online stores?",
+    "reply": "AI-driven chatbots can provide instant and personalized customer support, answering queries, handling complaints, and guiding users through the online shopping process.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "Can AI predict trends in ecommerce, helping me stay ahead in the market?",
+    "reply": "Yes, AI can analyze market trends, consumer behavior, and competitor activities to predict future trends in the ecommerce industry, helping you make informed decisions.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "How does AI enhance product recommendations on ecommerce websites?",
+    "reply": "AI analyzes your browsing history, purchase patterns, and similar users' behavior to provide accurate and personalized product recommendations, enhancing your overall shopping experience.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "Can AI help prevent fraud in online transactions?",
+    "reply": "Certainly, AI algorithms can detect unusual patterns and behaviors associated with fraud, helping secure online transactions and protect users from potential threats.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "How can AI improve the efficiency of inventory management for online retailers?",
+    "reply": "AI can optimize inventory levels, predict demand, and automate reordering processes, ensuring that online retailers maintain an efficient and well-managed inventory.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "What AI tools can help me analyze customer feedback for my ecommerce business?",
+    "reply": "AI sentiment analysis tools can evaluate customer reviews and feedback, providing valuable insights into customer satisfaction and areas for improvement.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "How can AI enhance the security of online transactions in ecommerce?",
+    "reply": "AI employs advanced security measures, such as biometric authentication and anomaly detection, to safeguard online transactions and protect user information.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "Can AI help me optimize pricing strategies for my ecommerce products?",
+    "reply": "Yes, AI algorithms can analyze market dynamics, competitor pricing, and consumer behavior to optimize pricing strategies and maximize profits for ecommerce products.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "How can AI assist in the creation of personalized shopping experiences?",
+    "reply": "AI utilizes data on user preferences, browsing history, and demographic information to create personalized shopping experiences, tailoring product recommendations and promotions.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "What are the benefits of implementing AI-powered chatbots in ecommerce customer service?",
+    "reply": "AI-powered chatbots provide instant responses, handle routine inquiries, and offer personalized assistance, enhancing the efficiency and effectiveness of ecommerce customer service.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "How can AI help in demand forecasting for ecommerce businesses?",
+    "reply": "AI utilizes historical data, market trends, and external factors to accurately forecast demand for products, enabling ecommerce businesses to optimize inventory and meet customer needs.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "What are the challenges of integrating AI into small ecommerce businesses?",
+    "reply": "While AI offers numerous benefits, challenges include initial implementation costs, the need for skilled personnel, and potential resistance to technological change within small ecommerce enterprises.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "How can AI contribute to the personalization of marketing strategies in ecommerce?",
+    "reply": "AI analyzes customer data to create targeted marketing campaigns, delivering personalized content, recommendations, and promotions that resonate with individual preferences and behaviors.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "What ethical considerations should ecommerce businesses keep in mind when using AI?",
+    "reply": "ecommerce businesses should consider transparency, data privacy, and fairness in AI algorithms, ensuring ethical use and building trust among customers when implementing AI technologies.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "How can AI-powered virtual assistants enhance the shopping experience for online customers?",
+    "reply": "AI virtual assistants offer personalized recommendations, answer queries, and streamline the shopping process, creating a more interactive and enjoyable experience for online customers.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "In what ways can AI contribute to supply chain optimization in ecommerce?",
+    "reply": "AI optimizes supply chain processes by predicting demand, automating inventory management, and enhancing logistics efficiency, ultimately improving the overall performance of ecommerce supply chains.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "How can I start selling products on Flipkart?",
+    "reply": "To start selling on Flipkart, you need to register as a seller on their platform, provide the necessary documents, and list your products following their guidelines.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "What are the fees associated with selling on Flipkart?",
+    "reply": "Flipkart charges various fees, including commission fees and shipping fees. The specific fees depend on the category and type of products you are selling.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "How does Flipkart handle product returns and refunds?",
+    "reply": "Flipkart has a return and refund policy in place. Sellers need to adhere to this policy, and the platform provides guidelines on handling returns and processing refunds.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "Can I sell handmade or unique products on Flipkart?",
+    "reply": "Yes, Flipkart allows sellers to list handmade and unique products. You need to provide detailed information about your products during the listing process.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "How can I optimize my product listings for better visibility on Flipkart?",
+    "reply": "Optimizing product titles, descriptions, and images can enhance visibility. Additionally, participating in Flipkart promotions and discounts can attract more customers.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "What is the process for shipping products to customers when selling on Flipkart?",
+    "reply": "Sellers can choose to fulfill orders themselves or use Flipkart's fulfillment services. Proper packaging and timely shipping are essential for a positive customer experience.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "How can I handle customer inquiries and complaints as a Flipkart seller?",
+    "reply": "Responding promptly to customer inquiries and addressing complaints professionally is crucial. Flipkart provides a seller support system to assist in such matters.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "What types of products perform well on Flipkart?",
+    "reply": "Products with high demand, good quality, and competitive pricing generally perform well on Flipkart. It's essential to research the market and stay updated on trends.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "Can I run promotions or discounts on my products on Flipkart?",
+    "reply": "Yes, Flipkart allows sellers to run promotions and discounts on their products. This can attract more customers and boost sales during special events or festivals.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "What are the key policies I should be aware of as a Flipkart seller?",
+    "reply": "Key policies include return and refund policies, product listing guidelines, and seller performance metrics. Familiarizing yourself with these policies is essential for a smooth selling experience.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "How does Flipkart support sellers in building their brand on the platform?",
+    "reply": "Flipkart offers tools and features for sellers to build their brand, including customizable storefronts and promotional opportunities. Utilizing these resources can help enhance brand visibility.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "What are the payment options available for Flipkart sellers?",
+    "reply": "Flipkart provides multiple payment options for sellers, including direct bank transfers. Sellers can choose the most convenient option based on their preferences.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "How can I track the performance of my products on Flipkart?",
+    "reply": "Flipkart provides a seller dashboard that offers insights into product performance, customer feedback, and sales metrics. Regularly monitoring this dashboard can help sellers make informed decisions.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "What marketing tools does Flipkart provide to promote my products?",
+    "reply": "Flipkart offers various marketing tools, such as sponsored listings and advertising options, to help sellers promote their products and reach a wider audience.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "Are there any restrictions on the number of products I can list on Flipkart?",
+    "reply": "Flipkart typically does not have strict restrictions on the number of products a seller can list. However, it's important to review and comply with Flipkart's product listing guidelines.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "What is Flipkarts process for verifying seller accounts?",
+    "reply": "Flipkart verifies seller accounts by reviewing the provided documents and information during the registration process. Sellers should ensure accurate and authentic details.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "Can I sell internationally on Flipkart?",
+    "reply": "As of now, Flipkart primarily caters to the Indian market. International selling options may be limited, and sellers should check Flipkart's policies for any updates in this regard.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "What kind of customer support does Flipkart offer to sellers?",
+    "reply": "Flipkart provides a dedicated seller support system to assist with inquiries, issues, and guidance. Sellers can reach out to the support team for assistance.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "Are there any seasonal trends or events on Flipkart that sellers can leverage?",
+    "reply": "Yes, Flipkart often runs special events, sales, and festivals that sellers can leverage for increased visibility and sales. Participating in these events can be strategically beneficial.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "What steps can I take to optimize my product images for better visibility on Flipkart?",
+    "reply": "Optimizing product images by ensuring high quality, clear visuals, and accurate representation of products can significantly enhance visibility and attract more customers.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "How do I start selling on Amazon India?",
+    "reply": "To start selling on Amazon India, you need to create a seller account, list your products, and manage your orders through the seller dashboard.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "What are the fees for selling on Amazon India?",
+    "reply": "Amazon charges various fees, including referral fees and fulfillment fees. You can check the fee structure on the Amazon Seller Central website.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "How can I optimize my product listings on Amazon India?",
+    "reply": "Optimize your product listings by using high-quality images, relevant keywords, detailed product descriptions, and competitive pricing.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "What are the best practices for promoting my products on Amazon India?",
+    "reply": "Promote your products through Amazon Advertising, participate in deals and promotions, and request customer reviews to enhance visibility and sales.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "How does fulfillment work on Amazon India?",
+    "reply": "You can choose to fulfill orders yourself or opt for Fulfillment by Amazon (FBA), where Amazon handles storage, packing, and shipping of your products.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "What are the requirements for shipping to customers on Amazon India?",
+    "reply": "Ensure timely shipping, use reliable carriers, and provide accurate tracking information to meet Amazon's shipping standards.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "How do I handle returns and customer service on Amazon India?",
+    "reply": "Set clear return policies, respond promptly to customer inquiries, and provide excellent customer service to build trust and positive reviews.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "What types of products are restricted on Amazon India?",
+    "reply": "Certain products, such as illegal items, restricted goods, and items that violate Amazon's policies, are prohibited. Refer to Amazon's prohibited products list for details.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "How can I track the performance of my Amazon India store?",
+    "reply": "Monitor your store's performance through the Amazon Seller Central dashboard, which provides insights into sales, customer feedback, and more.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "What are the key factors for winning the Buy Box on Amazon India?",
+    "reply": "Offer competitive prices, maintain high seller ratings, ensure reliable and fast shipping, and keep sufficient inventory to increase your chances of winning the Buy Box.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "How can I handle negative reviews on Amazon India?",
+    "reply": "Respond professionally to negative reviews, address customer concerns, and strive to improve your products and services based on feedback.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "What are the advertising options available on Amazon India?",
+    "reply": "Amazon offers various advertising options, including Sponsored Products, Sponsored Brands, and Display Ads, to promote your products to a broader audience.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "How can I enhance the visibility of my products on Amazon India?",
+    "reply": "Optimize product titles, use relevant keywords, leverage Amazon Advertising, and participate in promotional events to boost product visibility.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "Are there any resources or tutorials for Amazon India sellers?",
+    "reply": "Amazon provides a Seller University with tutorials, webinars, and resources to help sellers understand and navigate the platform effectively.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "What are the customer eligibility criteria for Amazon India's Prime program?",
+    "reply": "To be eligible for Amazon Prime, ensure timely order fulfillment, offer free or discounted shipping, and maintain a high level of customer satisfaction.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "How does Amazon India handle product warranties and guarantees?",
+    "reply": "Sellers are responsible for providing accurate warranty information, and customers can contact sellers directly for warranty-related inquiries.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "What is the process for creating effective product images on Amazon India?",
+    "reply": "Use high-resolution images, showcase product features, and follow Amazon's image guidelines to create visually appealing product listings.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "Can I sell handmade or custom products on Amazon India?",
+    "reply": "Yes, Amazon allows the sale of handmade and custom products. Ensure compliance with Amazon's guidelines for such items.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "How can I deal with counterfeit product issues on Amazon India?",
+    "reply": "Report counterfeit issues to Amazon through the Brand Registry program and work with Amazon to address and resolve such incidents.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  },
+  {
+    "prompt": "What are the benefits of joining Amazon India's FBA program?",
+    "reply": "FBA provides benefits such as access to Amazon Prime customers, streamlined order fulfillment, and enhanced customer trust in fast and reliable shipping.",
+    "category": "eCommerce",
+    "date": formattedDateTime
+  }
+];
+
+
+
+
+localStorage.setItem("promptReplies", JSON.stringify(savedData));

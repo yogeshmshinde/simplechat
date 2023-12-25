@@ -12,35 +12,59 @@ document.addEventListener("DOMContentLoaded", () => {
 function output(input) {
   let product;
 
-  // Regex remove non word/space chars
-  // Trim trailing whitespce
-  // Remove digits - not sure if this is best
-  // But solves problem of entering something like 'hi1'
+  const matchingReplies = searchPromptReplies(input);
+  if (matchingReplies) {
+    const exactHiMatches = matchingReplies.filter((pair) => pair.reply.toLowerCase() === "hi");
+    
+    if (exactHiMatches.length > 0) {
+      product = exactHiMatches[0].reply; // Use the best exact match
+    } else if (matchingReplies) {
+      // Search for partial matches based on words
+      const matchingReplies = searchPromptReplies(input);
+      const bestMatch = matchingReplies?.sort((a, b) => {
+        const aMatches = a.reply.toLowerCase().split(/\W+/).includes(input.toLowerCase());
+        const bMatches = b.reply.toLowerCase().split(/\W+/).includes(input.toLowerCase());
+        return bMatches - aMatches; // Sort in descending order of matches (true > false)
+      })?.[0];
 
-  let text = input.toLowerCase().replace(/[^\w\s]/gi, "").replace(/[\d]/gi, "").trim();
-  text = text
-    .replace(/ a /g, " ")   // 'tell me a story' -> 'tell me story'
-    .replace(/i feel /g, "")
-    .replace(/whats/g, "what is")
-    .replace(/please /g, "")
-    .replace(/ please/g, "")
-    .replace(/r u/g, "are you");
-
-  if (compare(prompts, replies, text)) { 
-    // Search for exact match in `prompts`
-    product = compare(prompts, replies, text);
-  } else if (text.match(/thank/gi)) {
-    product = "You're welcome!"
-  } else if (text.match(/(corona|covid|virus)/gi)) {
-    // If no match, check if message contains `coronavirus`
-    product = coronavirus[Math.floor(Math.random() * coronavirus.length)];
-  } else {
-    // If all else fails: random alternative
-    product = alternative[Math.floor(Math.random() * alternative.length)];
+      if (bestMatch) {
+        product = bestMatch.reply;
+      } else {
+        // If no matches found, return a random alternative
+        product = "Not sure what you're trying to say, thank you!";
+      }
+    } else {
+      // If no matches found, return a random alternative
+      product = "Not sure what you're trying to say!";
+    }
   }
-
   // Update DOM
   addChat(input, product);
+}
+
+
+function searchPromptReplies(query) {
+  try {
+    const results = savedData.filter((pair) => {
+      // Check for matches in prompt or reply, ignoring case
+      return (
+        pair.prompt.toLowerCase().includes(query.toLowerCase()) ||
+        pair.reply.toLowerCase().includes(query.toLowerCase())
+      );
+    });
+
+    // Sort results based on the number of matching words
+    results.sort((a, b) => {
+      const aMatches = a.reply.toLowerCase().match(new RegExp(query.toLowerCase(), "g")) || [];
+      const bMatches = b.reply.toLowerCase().match(new RegExp(query.toLowerCase(), "g")) || [];
+      return bMatches.length - aMatches.length; // Sort in descending order of matches
+    });
+
+    return results.length > 0 ? results : null; // Return all sorted results or null if not found
+  } catch (error) {
+    console.error("Error searching data:", error);
+    return null;
+  }
 }
 
 function compare(promptsArray, repliesArray, string) {
